@@ -14,14 +14,24 @@ public class Calculadora {
 	public int somar(@PathVariable int x, @PathVariable int y) {
 		return x + y;
 	}
-
 	
-	//o metodo subtrair pode ser chamado direto passado
-	//os parametros ....? x= valor & y= valor
-	@GetMapping
-	public int subtrair(
+	@GetMapping("/somar")
+	public int somar2(
 			@RequestParam(name = "x", defaultValue = "0") int x,
+			@RequestParam(name = "y", defaultValue = "0")int y) {
+		return x + y;
+	}
+
+	// o metodo subtrair pode ser chamado direto passado
+	// os parametros ....? x= valor & y= valor
+	@GetMapping("/subtrair")
+	public int subtrair(@RequestParam(name = "x", defaultValue = "0") int x,
 			@RequestParam(name = "y", defaultValue = "0") int y) {
+		return x - y;
+	}
+	
+	@GetMapping("subtrair/{x}/{y}")
+	public int subtrair2(@PathVariable int x, @PathVariable int y){
 		return x - y;
 	}
 
