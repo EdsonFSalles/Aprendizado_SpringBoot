@@ -1,4 +1,4 @@
-package br.com.Aula001.demo.Models;
+package br.com.Aula001.demo.Model.entities;
 
 public class Clientes {
 	private int id;
