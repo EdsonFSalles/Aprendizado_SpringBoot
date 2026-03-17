@@ -5,19 +5,53 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "Produtos")
 public class Produto {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@NotBlank
 	private String nome;
 	
+	@Min(0)
+	private double valor;
+	
+	@Min(0)
+	@Max(1)
+	private double desconto;
+
 	public Produto() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public Produto(String nome, double valor, double desconto) {
+		super();
+		this.nome = nome;
+		this.valor = valor;
+		this.desconto = desconto;
+	}
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+
+	public double getDesconto() {
+		return desconto;
+	}
+
+	public void setDesconto(double desconto) {
+		this.desconto = desconto;
 	}
 
 	public int getId() {
@@ -36,5 +70,7 @@ public class Produto {
 		this.nome = nome;
 	}
 	
-	
 }
+
+	
+	
